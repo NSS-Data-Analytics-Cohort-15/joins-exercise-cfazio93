@@ -68,6 +68,7 @@ ORDER BY rating.imdb_rating DESC;
 --answer: 2 movies, highest rating is Dirty Dancing
 
 -- 7. Which have a higher average rating, movies which are over two hours long or movies which are under two hours?
+--can go back and do with CASE
 SELECT AVG(rating.imdb_rating) AS avg_imdb_rating
 FROM rating
 INNER JOIN specs
