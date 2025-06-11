@@ -63,7 +63,7 @@ INNER JOIN distributors
 ON specs.domestic_distributor_id = distributors.distributor_id
 INNER JOIN rating
 ON specs.movie_id = rating.movie_id
-WHERE distributors.headquarters NOT LIKE '%, CA%'
+WHERE distributors.headquarters NOT LIKE '%, CA'
 ORDER BY rating.imdb_rating DESC; 
 --answer: 2 movies, highest rating is Dirty Dancing
 
@@ -82,3 +82,14 @@ ON rating.movie_id = specs.movie_id
 WHERE specs.length_in_min >= '120';
 --avg rating for movies over 2 hours =7.25
 --answer: movies over 2 hours long have a higher avg rating
+
+--from Jennifer, need to fix..also just learned CASE today
+--SELECT CASE
+--(WHEN specs.length_in_min > 120, THEN 'over hours'
+--WHEN specs.length_in_min <120, THEN 'under hours'
+--END AS film_length_category,)
+--AVG(rating.imdb_rating) AS imdb_rating
+--FROM specs
+--JOIN rating
+--ON specs.movie_id = rating.movie_id
+--GROUP BY film_length_category;
