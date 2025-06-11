@@ -57,13 +57,13 @@ LIMIT 5;
 --answer: Disney, Sony, Lionsgate, DreamWorks, Warner Bros
 
 -- 6. How many movies in the dataset are distributed by a company which is not headquartered in California? Which of these movies has the highest imdb rating?
-SELECT *
+SELECT specs.film_title, rating.imdb_rating
 FROM specs
 INNER JOIN distributors
 ON specs.domestic_distributor_id = distributors.distributor_id
 INNER JOIN rating
 ON specs.movie_id = rating.movie_id
-WHERE distributors.headquarters NOT LIKE '%CA%'
+WHERE distributors.headquarters NOT LIKE '%, CA%'
 ORDER BY rating.imdb_rating DESC; 
 --answer: 2 movies, highest rating is Dirty Dancing
 
